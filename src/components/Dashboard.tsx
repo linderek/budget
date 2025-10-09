@@ -397,7 +397,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
                   tickFormatter={(value) => `$${(value / 1000).toFixed(0)}k`}
                 />
                 <Tooltip content={<WaterfallTooltip />} />
-                <Bar dataKey="value" fill="blue" />
+                <Bar dataKey="value" fill="green" />
               </BarChart>
             </ResponsiveContainer>
           </div>
