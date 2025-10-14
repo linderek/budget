@@ -305,7 +305,11 @@ export const BudgetUploadModal: React.FC<BudgetUploadModalProps> = ({
         return <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-red-100 text-red-800">Error</span>;
     }
   };
+const exampleCSV=()=>{
+alert('open')
+window.open('example/example.csv','_blank');
 
+}
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
       <div className="bg-white rounded-xl shadow-2xl max-w-6xl w-full max-h-[90vh] overflow-hidden">
@@ -331,6 +335,17 @@ export const BudgetUploadModal: React.FC<BudgetUploadModalProps> = ({
           {/* Step Indicator */}
           <div className="flex items-center justify-center mb-8">
             <div className="flex items-center space-x-4">
+
+              {step === 'upload'&&(<div className={`flex items-center space-x-2 'text-blue-600'`}>
+                  <button
+                    onClick={exampleCSV}
+                    className="flex items-center space-x-2 bg-gray-600 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors"
+                  >
+                    <Download className="w-4 h-4" />
+                    <span>Example Excel</span>
+                  </button>
+              </div>)}
+              
               <div className={`flex items-center space-x-2 ${step === 'upload' ? 'text-blue-600' : 'text-gray-400'}`}>
                 <div className={`w-8 h-8 rounded-full flex items-center justify-center ${step === 'upload' ? 'bg-blue-100' : 'bg-gray-100'}`}>
                   <Upload className="w-4 h-4" />
