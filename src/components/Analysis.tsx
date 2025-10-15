@@ -503,7 +503,9 @@ export const Analysis: React.FC<AnalysisProps> = ({
                           onClick={() => handleRowClick(category)}
                         >
                           <td className="px-4 py-3 text-sm font-medium text-gray-900" title={category.category}>
-                            {shortLabel}
+                            {category.category
+                            //shortLabel
+                            }
                           </td>
                           <td className="px-4 py-3 text-sm text-gray-900 text-right">{formatCurrency(totalBudget)}</td>
                           <td className="px-4 py-3 text-sm text-gray-900 text-right">{formatCurrency(totalActual)}</td>

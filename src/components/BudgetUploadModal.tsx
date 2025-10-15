@@ -306,9 +306,25 @@ export const BudgetUploadModal: React.FC<BudgetUploadModalProps> = ({
     }
   };
 const exampleCSV=()=>{
-alert('open')
-window.open('example/example.csv','_blank');
 
+      const csvData = [
+      [ 'Year', 'Team', 'Category', 'H1 Budget', 'H2 Budget', 'Annual Budget', 'Date', 'Amount', 'Description']
+    ];
+    // Convert to CSV string
+    const csvContent = csvData.map(row => 
+      row.map(cell => `"${cell}"`).join(',')
+    ).join('\n');
+
+    // Download CSV
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+    link.setAttribute('href', url);
+    link.setAttribute('download', `ExampleBudgetData.csv`);
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 }
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
