@@ -398,42 +398,11 @@ export const BudgetUploadModal: React.FC<BudgetUploadModalProps> = ({
       } else {
         const ws = XLSX.utils.aoa_to_sheet(templateData);
         const wb = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(wb, ws, 'Actuals Template');
-        XLSX.writeFile(wb, 'actuals_template.xlsx');
+        XLSX.utils.book_append_sheet(wb, ws, 'Budget Template');
+        XLSX.writeFile(wb, 'Budget_template.xlsx');
       }
     };
 
-
-  const exampleCSV = () => {
-    const csvData = [
-      [
-        "Year",
-        "Team",
-        "Category",
-        "H1 Budget",
-        "H2 Budget",
-        "Annual Budget",
-        "Date",
-        "Amount",
-        "Description",
-      ],
-    ];
-    // Convert to CSV string
-    const csvContent = csvData
-      .map((row) => row.map((cell) => `"${cell}"`).join(","))
-      .join("\n");
-
-    // Download CSV
-    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
-    const link = document.createElement("a");
-    const url = URL.createObjectURL(blob);
-    link.setAttribute("href", url);
-    link.setAttribute("download", `ExampleBudgetData.csv`);
-    link.style.visibility = "hidden";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
       <div className="bg-white rounded-xl shadow-2xl max-w-6xl w-full max-h-[90vh] overflow-hidden">
